@@ -7,7 +7,13 @@
     tools:context=".MainActivity"
     android:orientation="horizontal"
     android:padding="@dimen/padding_pantalla"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/fondo">
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.1"></Space>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,17 +30,86 @@
             android:text="@string/un_jugador"
             android:id="@+id/unjug">
         </Button>
-        
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                style="@style/radio"
+                android:id="@+id/facil"
+                android:text="@string/facil">
+            </RadioButton>
+            <RadioButton
+                style="@style/radio"
+                android:id="@+id/normal"
+                android:text="@string/normal">
+            </RadioButton>
+            <RadioButton
+                style="@style/radio"
+                android:id="@+id/dificil"
+                android:text="@string/dificil">
+            </RadioButton>
+        </RadioGroup>
+
         <Button
             style="@style/boton"
             android:id="@+id/dosjug"
             android:text="@string/dos_jugadores">
         </Button>
-
     </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_weight="0.5"></Space>
+
     <GridLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:columnCount="3"
+        android:rowCount="3">
+
+        <ImageView
+            android:id="@+id/a1"
+            android:src="@drawable/circulo"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/a2"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/a3"
+            android:src="@drawable/aspa"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/b1"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/b2"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/b3"
+            android:src="@drawable/aspa"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/c1"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/c2"
+            android:src="@drawable/circulo"
+            style="@style/casilla"
+            />
+        <ImageView
+            android:id="@+id/c3"
+            style="@style/casilla"
+            />
 
     </GridLayout>
 </LinearLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding_pantalla">24dp</dimen>
-    <dimen name="casilla">160dp</dimen>
+    <dimen name="casilla">110dp</dimen>
     <dimen name="texto_titulo">48sp</dimen>
     <dimen name="texto_boton">36sp</dimen>
     <dimen name="ancho__min_boton">280dp</dimen>
