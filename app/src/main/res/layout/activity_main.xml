@@ -13,7 +13,8 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_weight="0.1"></Space>
+        android:layout_weight="0.1">
+    </Space>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -32,23 +33,24 @@
         </Button>
 
         <RadioGroup
+            android:id="@+id/configDificultad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
-                style="@style/radio"
                 android:id="@+id/facil"
-                android:text="@string/facil">
-            </RadioButton>
-            <RadioButton
                 style="@style/radio"
+                android:text="@string/facil"></RadioButton>
+
+            <RadioButton
                 android:id="@+id/normal"
-                android:text="@string/normal">
-            </RadioButton>
-            <RadioButton
                 style="@style/radio"
+                android:text="@string/normal"></RadioButton>
+
+            <RadioButton
                 android:id="@+id/dificil"
-                android:text="@string/dificil">
-            </RadioButton>
+                style="@style/radio"
+                android:text="@string/dificil"></RadioButton>
         </RadioGroup>
 
         <Button
@@ -61,7 +63,8 @@
     <Space
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_weight="0.5"></Space>
+        android:layout_weight="0.5">
+    </Space>
 
     <GridLayout
         android:layout_width="wrap_content"
