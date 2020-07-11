@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -55,10 +58,59 @@ public class MainActivity extends Activity {
                 dificultad = 2;
 
 
-        partida = new Partida(dificultad);
+        partida = new Partida(dificultad);  //inicializamos la partida
+
+
         ((Button)findViewById(R.id.unjug)).setEnabled(false);       //inhabilitamos los botones durante la partida
         ((Button)findViewById(R.id.dosjug)).setEnabled(false);
-        ((RadioGroup)findViewById(R.id.configDificultad)).setAlpha(0);
+        ((RadioButton)findViewById(R.id.facil)).setEnabled(false);
+        ((RadioButton)findViewById(R.id.normal)).setEnabled(false);
+        ((RadioButton)findViewById(R.id.dificil)).setEnabled(false);
 
     }
-}
+
+    public void toque(View view){
+        if( partida == null) {  //comprobar si la partida se ha inicializado
+            return;
+        }
+
+        int casilla = 0;
+        boolean encontrado = false;
+            for (int i = 0; i < 9 && encontrado == false; i++) {    //comprobamos qué casilla se ha pulsado
+                if (casillas[i] == view.getId()) {
+                    casilla = i;
+                    encontrado = true;
+                }
+            }
+         //Toast toast = Toast.makeText(this, "Has pulsado la casilla " + casilla, Toast.LENGTH_LONG);     //popup mostrando la casilla pulsada
+         //toast.setGravity(Gravity.CENTER,0,0);
+         //toast.show();
+        if(!partida.isOcupada(casilla))
+            return;
+        marcar(casilla);    // marcamos la casilla que hemos pinchado
+
+        casilla = partida.iA();    //marcamos de manera aleatoria una casilla
+        while(partida.isOcupada(casilla) != true){
+            casilla = partida.iA();
+        }
+        partida.turno();
+
+        marcar(casilla);
+
+        partida.turno();
+        }
+
+        private void marcar (int casilla){
+
+            ImageView imagen;
+            imagen = (ImageView)findViewById(casillas[casilla]);    //obtenemos la imagen que hay en la casilla pulsada
+
+            if( partida.jugador == 1){      //asignamos al jugador 1 los círculos
+                imagen.setImageResource(R.drawable.circulo);    //cambiamos la casilla pulsada a la imagen del círculo
+            }
+            else{
+                imagen.setImageResource(R.drawable.aspa);
+            }
+
+        }
+    }
