@@ -87,13 +87,16 @@ public class MainActivity extends Activity {
          //toast.show();
         if(!partida.isOcupada(casilla))
             return;
+
         marcar(casilla);    // marcamos la casilla que hemos pinchado
+
+        partida.turno();
 
         casilla = partida.iA();    //marcamos de manera aleatoria una casilla
         while(partida.isOcupada(casilla) != true){
             casilla = partida.iA();
         }
-        partida.turno();
+
 
         marcar(casilla);
 
