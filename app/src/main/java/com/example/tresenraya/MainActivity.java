@@ -100,9 +100,10 @@ public class MainActivity extends Activity {
             return;
 
         casilla = partida.iA();    //marcamos de manera aleatoria una casilla
-        while(partida.isOcupada(casilla) != true){
+        System.out.println("Valor de casilla " + casilla);
+        while(partida.isOcupada(casilla) != true)
             casilla = partida.iA();
-        }
+
 
 
         marcar(casilla);

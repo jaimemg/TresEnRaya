@@ -4,7 +4,7 @@
     <string name="dos_jugadores">Multiplayer</string>
     <string name="facil">Easy</string>
     <string name="normal">Normal</string>
-    <string name="dificil">Hard</string>
+    <string name="dificil">Insane</string>
     <string name="casilla">Tile</string>
     <string name="aspas_ganan">Crosses win!</string>
     <string name="circulos_ganan">Circles win!</string>

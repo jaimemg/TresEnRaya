@@ -23,9 +23,10 @@ public class Partida {
         int casilla;
         casilla = dosEnRaya(2);
 
-        if (casilla != -1)
-            return -1;
+        if (casilla != -1) {
 
+            return casilla;
+        }
         if(dificultad > 0){
 
             casilla = dosEnRaya(1);
@@ -61,7 +62,7 @@ public class Partida {
 
             for (int pos : COMBINACIONES[i]) {
 
-                System.out.println("Valor en posición " +pos + " " + ocupadas[pos]);
+                //System.out.println("Valor en posición " +pos + " " + ocupadas[pos]);
 
                 if(ocupadas[pos] != jugador)    //si las 3 casillas que consiguen una combinacion no tienen el mismo valor, no se ha realizado el último movimiento de la partida, es decir, no se ha ganado
                     ultMovimiento = false;
@@ -70,7 +71,7 @@ public class Partida {
                     empate = false;
                 }
             }
-            System.out.println("-----------------------------------------------");
+            //System.out.println("-----------------------------------------------");
 
             if(ultMovimiento)   //devuelve el jugador que ha ganado, que es quien realiza el último movimiento
                 return jugador;
@@ -96,9 +97,11 @@ public class Partida {
     public boolean isOcupada(int casilla){
         if(ocupadas[casilla] != 0)
             return false;
-        else    ocupadas[casilla] = jugador;    //si no está ocupada, marcamos la casilla ocmo ocupada
+        else {
+            ocupadas[casilla] = jugador;    //si no está ocupada, marcamos la casilla como ocupada
+            return true;
+        }
 
-        return true;
     }
 
     public int dosEnRaya (int jugador){     //método que comprueba si existe alguna casilla que corte las 3 en raya al rival o que nos posibilite 3 en raya
