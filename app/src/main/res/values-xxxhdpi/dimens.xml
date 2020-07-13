@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_pantalla">24dp</dimen>
-    <dimen name="casilla">110dp</dimen>
+    <dimen name="padding_pantalla">12dp</dimen>
+    <dimen name="casilla">105dp</dimen>
     <dimen name="texto_titulo">30sp</dimen>
     <dimen name="texto_boton">20sp</dimen>
-    <dimen name="ancho__min_boton">200dp</dimen>
+    <dimen name="ancho__min_boton">170dp</dimen>
     <dimen name="alto_min_boton">60dp</dimen>
-    <dimen name="margen_boton">12dp</dimen>
+    <dimen name="margen_boton">5dp</dimen>
     <dimen name="radio_boton">12dp</dimen>
     <dimen name="padding_boton">12dp</dimen>
     <dimen name="texto_radio">21sp</dimen>
