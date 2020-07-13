@@ -90,7 +90,14 @@ public class MainActivity extends Activity {
 
         marcar(casilla);    // marcamos la casilla que hemos pinchado
 
-        partida.turno();
+        int resultado = partida.turno();
+
+        if (resultado > 0) {
+            termina(resultado);
+            return;
+        }
+        if (jugadores == 2)     //si se ha elegido 2 jugadores se ignora la IA
+            return;
 
         casilla = partida.iA();    //marcamos de manera aleatoria una casilla
         while(partida.isOcupada(casilla) != true){
@@ -100,7 +107,10 @@ public class MainActivity extends Activity {
 
         marcar(casilla);
 
-        partida.turno();
+        resultado = partida.turno();
+        if (resultado > 0)
+            termina(resultado);
+
         }
 
         private void marcar (int casilla){
@@ -115,5 +125,26 @@ public class MainActivity extends Activity {
                 imagen.setImageResource(R.drawable.aspa);
             }
 
+        }
+
+        private void termina(int resultado){
+            String mensaje;
+            if (resultado == 1)
+                mensaje = getString(R.string.circulos_ganan);
+            else if (resultado == 2)
+                mensaje = getString(R.string.aspas_ganan);
+            else mensaje = getString(R.string.empate);
+
+
+            Toast toast = Toast.makeText(this, mensaje, Toast.LENGTH_LONG);     //popup mostrando la casilla pulsada
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+
+            partida = null;
+            ((Button)findViewById(R.id.unjug)).setEnabled(true);       //volvemos a habilitar los botones
+            ((Button)findViewById(R.id.dosjug)).setEnabled(true);
+            ((RadioButton)findViewById(R.id.facil)).setEnabled(true);
+            ((RadioButton)findViewById(R.id.normal)).setEnabled(true);
+            ((RadioButton)findViewById(R.id.dificil)).setEnabled(true);
         }
     }

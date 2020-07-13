@@ -21,7 +21,32 @@ public class Partida {
     public int iA(){
 
         int casilla;
-        Random random = new Random();
+        casilla = dosEnRaya(2);
+
+        if (casilla != -1)
+            return -1;
+
+        if(dificultad > 0){
+
+            casilla = dosEnRaya(1);
+            if (casilla != -1)
+                return casilla;
+        }
+        if (dificultad == 2)    //si no existe una casilla clave, comprobamos si las esquinas están libres y marcamos una de ellas
+        {
+            if (ocupadas[4] == 0) //marcamos la casilla centrar si está libre
+                return 4;
+            if (ocupadas[0] == 0)
+                return 0;
+            if (ocupadas[2] == 0)
+                return 2;
+            if (ocupadas[6] == 0)
+                return 6;
+            if (ocupadas[8] == 0)
+                return 8;
+        }
+
+        Random random = new Random();       //solo marca una posición aleatoria si el código anterior no ha marcado casilla o si está en dificultad fácil
         casilla = random.nextInt(9);
         return casilla;
 
@@ -76,7 +101,7 @@ public class Partida {
         return true;
     }
 
-    public int dosEnRaya (int jugador){
+    public int dosEnRaya (int jugador){     //método que comprueba si existe alguna casilla que corte las 3 en raya al rival o que nos posibilite 3 en raya
 
         int casillaClave = -1;
         int contador = 0;
